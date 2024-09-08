@@ -1,21 +1,39 @@
-const firstNum = 0;
-const secondNum = 0;
+const firstNum = "";
+const secondNum = "";
+const oP="";
 const oPtr = document.querySelectorAll(".opbtn");
 const displayText = document.querySelector(".display");
 const displayCont = document.querySelector(".otherbtn");
 const button=document.querySelectorAll("#btn");
 const backSpc = document.querySelector(".btnB");
 const clearAll = document.querySelector(".btnC");
+const eQual = document.querySelector(".submitbtn");
 
 button.addEventListener("click",()=> {
-    if (firstNum==="" && oPtr===""){
+    if (oP===""){
         firstNum=button.values; 
-    }else if(firstNum !=="" && oPtr!==""){
+        display(firstNum);
+    }else if(firstNum !=="" && oP!==""){
         secondNum=button.values;
+        display(secondNum);
     }
     
 } );
-value.addEventListener("click",()=> secondNum=value );
+
+oPtr.addEventListener("click",()=>{
+    return oP= oPtr.values;
+});
+
+eQual.addEventListener("click",()=> {
+    if(firstNum==="" && secondNum==="" && oP==="") return alert("Empty.. Type Something");
+    operator(firstNum,secondNum,oP);
+});
+
+clearAll.addEventListener("click",()=>{
+    return displayText.textContent="";
+});
+
+
 
 
 function operator(fNum, sNum, oP) {
