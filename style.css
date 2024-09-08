@@ -1,4 +1,4 @@
-body{
+/* body{
     background-color: aquamarine;
     
 }
@@ -40,4 +40,111 @@ display: flex;
 button,#btn{
     width: 100px;
     height: 100px;
+} */
+
+body {
+    background-color: #2b2d2f;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
+
+.container {
+    width: 360px;
+    background: linear-gradient(145deg, #1c1f22, #282c34);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.display {
+    height: 80px;
+    background: #111;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    border-bottom: 2px solid #333;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+button {
+    background: #333;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button.operator {
+    background: #f76c6c;
+}
+
+button.operator:hover {
+    background: #f75c5c;
+}
+
+button.submitbtn {
+    background: #4caf50;
+    grid-column: span 2;
+}
+
+button.submitbtn:hover {
+    background: #45a049;
+}
+
+button.clearbtn {
+    background: #e91e63;
+    grid-column: span 2;
+}
+
+button.clearbtn:hover {
+    background: #d81b60;
+}
+
+button.backpcbtn {
+    background: #ff9800;
+}
+
+button.backpcbtn:hover {
+    background: #fb8c00;
+}
+
+button.decimalbtn {
+    background: #3f51b5;
+}
+
+button.decimalbtn:hover {
+    background: #303f9f;
+}
+
+/* Additional Styles for Layout and Responsiveness */
+@media (max-width: 400px) {
+    .container {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+    }
+    .buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
