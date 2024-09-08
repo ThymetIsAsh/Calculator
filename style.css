@@ -6,27 +6,36 @@ body{
     width: 700px;
     height: 600px;
     background-color: rgb(60, 40, 78);
+    display: flex;
+    justify-content: center;
 
 }
 .display{
-    height: 90px;
+    height: 100px;
     background-color: beige;
 }
 .otherbtn{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
 }
+.display{
+    flex: 1;
+}
+
+.submitbtn,.divisionbtn>.row{
+display: flex;
+}
+.submitbtn,.divisionbtn{
+  
+    justify-items: stretch;
+}
+
 .numbtn>.row{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-/* .row{
-display: flex;
-justify-content: space-between;
-} */
 
 button,#btn{
     width: 100px;
