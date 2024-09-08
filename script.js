@@ -1,8 +1,21 @@
 const firstNum = 0;
 const secondNum = 0;
-const oPtr = "";
+const oPtr = document.querySelectorAll(".opbtn");
 const displayText = document.querySelector(".display");
 const displayCont = document.querySelector(".otherbtn");
+const button=document.querySelectorAll("#btn");
+const backSpc = document.querySelector(".btnB");
+const clearAll = document.querySelector(".btnC");
+
+button.addEventListener("click",()=> {
+    if (firstNum==="" && oPtr===""){
+        firstNum=button.values; 
+    }else if(firstNum !=="" && oPtr!==""){
+        secondNum=button.values;
+    }
+    
+} );
+value.addEventListener("click",()=> secondNum=value );
 
 
 function operator(fNum, sNum, oP) {
@@ -36,7 +49,7 @@ function operator(fNum, sNum, oP) {
             return result = fNum / sNum;
             break;
         default:
-            alert("Somthing went Wrong");
+            alert("Something went Wrong");
     }
 
 }
