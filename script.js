@@ -1,20 +1,22 @@
 let firstNum = "";
 let secondNum = "";
 let oP = "";
+let aNs;
 const oPtr = document.querySelectorAll(".opbtn");
 const displayText = document.querySelector(".display");
 const displayCont = document.querySelector(".otherbtn");
-const button = document.querySelectorAll("#btn");
-const backSpc = document.querySelector(".btnB");
-const clearAll = document.querySelector(".btnC");
+const button = document.querySelectorAll("button:not(.opbtn, .decimalbtn, .submitbtn, .clearbtn, .backpcbtn)");
+const backSpc = document.querySelector(".backpcbtn");
+const clearAll = document.querySelector(".clearbtn");
 const eQual = document.querySelector(".submitbtn");
 const decimalBtn = document.querySelector(".decimalbtn");
 
 button.forEach(btn => {
     btn.addEventListener("click", () => {
-        if (firstNum === result.toString()) {
-            firstNum = ""; // Reset firstNum to start fresh
-        }
+        // if (firstNum === aNs.toString()) {
+        //     firstNum = ""; // Reset firstNum to start fresh
+        //     aNs="";
+        // }
         if (oP === "") {
             firstNum += btn.textContent;
             display(firstNum);
@@ -85,20 +87,20 @@ clearAll.addEventListener("click", () => {
     decimalBtn.disabled = false; // Enable decimal again when clearing
 });
 
-
-
-
 function operator(fNum, sNum, oP) {
     let result;
     switch (oP) {
         case "+":
             result = fNum + sNum;
+            aNs=result;
             break;
         case "-":
             result = fNum - sNum;
+            aNs=result;
             break;
         case "x":
             result = fNum * sNum;
+            aNs=result;
             break;
         case "/":
             if (sNum === 0) {
@@ -106,6 +108,7 @@ function operator(fNum, sNum, oP) {
                 return; // exit without doing the calculation
             }
             result = fNum / sNum;
+            aNs=result;
             break;
         default:
             alert("Something went wrong");
