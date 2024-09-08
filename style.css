@@ -1,0 +1,34 @@
+body{
+    background-color: aquamarine;
+    
+}
+.container{
+    width: 700px;
+    height: 600px;
+    background-color: rgb(60, 40, 78);
+
+}
+.display{
+    height: 90px;
+    background-color: beige;
+}
+.otherbtn{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.numbtn>.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* .row{
+display: flex;
+justify-content: space-between;
+} */
+
+button,#btn{
+    width: 100px;
+    height: 100px;
+}
