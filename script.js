@@ -1,6 +1,6 @@
-const firstNum = "";
-const secondNum = "";
-const oP="";
+let firstNum = "";
+let secondNum = "";
+let oP="";
 const oPtr = document.querySelectorAll(".opbtn");
 const displayText = document.querySelector(".display");
 const displayCont = document.querySelector(".otherbtn");
@@ -9,67 +9,62 @@ const backSpc = document.querySelector(".btnB");
 const clearAll = document.querySelector(".btnC");
 const eQual = document.querySelector(".submitbtn");
 
-button.addEventListener("click",()=> {
-    if (oP===""){
-        firstNum=button.values; 
-        display(firstNum);
-    }else if(firstNum !=="" && oP!==""){
-        secondNum=button.values;
-        display(secondNum);
+button.forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (oP === "") {
+            firstNum += btn.textContent; 
+            display(firstNum);
+        } else if (firstNum !== "" && oP !== "") {
+            secondNum += btn.textContent; 
+            display(secondNum);
+        }
+    });
+});
+
+oPtr.forEach(op => {
+    op.addEventListener("click", () => {
+        oP = op.textContent; 
+    });
+});
+
+eQual.addEventListener("click", () => {
+    if (firstNum === "" || secondNum === "" || oP === "") {
+        return alert("Empty.. Type Something");
     }
-    
-} );
-
-oPtr.addEventListener("click",()=>{
-    return oP= oPtr.values;
+    operator(Number(firstNum), Number(secondNum), oP); 
 });
 
-eQual.addEventListener("click",()=> {
-    if(firstNum==="" && secondNum==="" && oP==="") return alert("Empty.. Type Something");
-    operator(firstNum,secondNum,oP);
+clearAll.addEventListener("click", () => {
+    displayText.textContent = "";
+    firstNum = "";
+    secondNum = "";
+    oP = "";
 });
-
-clearAll.addEventListener("click",()=>{
-    return displayText.textContent="";
-});
-
-
-
 
 function operator(fNum, sNum, oP) {
-    let result, a;
-
-    if (fNum === "" && sNum === "") return alert("type something to begin");
-
-    if (oP === "+") {
-        a = 1;
-    } else if (oP === "-") {
-        a = 2;
-    } else if (oP === "x") {
-        a = 3;
-    } else if (oP === "/") {
-        a = 4;
-    } else {
-        a = 5;
-    }
-
-    switch (a) {
-        case 1:
-            return result = fNum + sNum;
+    let result;
+    switch (oP) {
+        case "+":
+            result = fNum + sNum;
             break;
-        case 2:
-            return result = fNum - sNum;
+        case "-":
+            result = fNum - sNum;
             break;
-        case 3:
-            return result = fNum * sNum;
+        case "x":
+            result = fNum * sNum;
             break;
-        case 4:
-            return result = fNum / sNum;
+        case "/":
+            result = fNum / sNum;
             break;
         default:
-            alert("Something went Wrong");
+            alert("Something went wrong");
+            return;
     }
 
+    display(result); // show result on the display
+    firstNum = result; // use result as the first number for the next operation
+    secondNum = "";
+    oP = "";
 }
 
 function display(num) {
